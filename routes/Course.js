@@ -8,46 +8,32 @@ const{
     createCourse,
     showAllCourses,
     getCourseDetails,
-} = require("../controllers/Course");
+} = require("../controllers/Course.js");
 
 //categories Controllers
 const{
     showAllCategories,
     createCategory,
     categoryPageDetails,
-} = require("../controllers/category");
+} = require("../controllers/Category.js");
 
 //Sections Controlles Import
 const{
     createSection,
     updateSection,
     deleteSection,
-} = require("../controllers/Section")
+} = require("../controllers/Section.js")
 
 //Sub-sections controllers Import
 const{
     createRating,
     getAverageRating,
     getAllRating,
-} = require("../controllers/RatingAndReview");
+} = require("../controllers/RatingAndReview.js");
 
 //Importing middlewares
-const{auth,isInstructor,isStudent,isAdmin} = require("../middlewares/auth");
+const{auth,isInstructor,isStudent,isAdmin} = require("../middlewares/auth.js");
 
-console.log({
-  createCourse,
-  showAllCourses,
-  getCourseDetails,
-  createSection,
-  updateSection,
-  deleteSection,
-  createCategory,
-  showAllCategories,
-  categoryPageDetails,
-  createRating,
-  getAverageRating,
-  getAllRating
-});
 
 //routes
 //Course
@@ -57,8 +43,8 @@ router.get("/getCourseDetails",getCourseDetails)
 
 //Section
 router.post("/createSection",auth,isInstructor,createSection)
-router.patch("/updateSection", auth, isInstructor, updateSection)
-router.delete("/deleteSection", auth, isInstructor,deleteSection)
+router.patch("/updateSection/:sectionId", auth, isInstructor, updateSection)
+router.delete("/deleteSection/:sectionId", auth, isInstructor,deleteSection)
 
 //categories
 router.post("/createCategory", auth,isAdmin,createCategory)

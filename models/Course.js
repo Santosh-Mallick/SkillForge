@@ -1,4 +1,4 @@
-const mongoose = required('mongoose');
+const mongoose = require('mongoose');
 
 const courseSchema = new mongoose.Schema({
     courseName:{
@@ -18,7 +18,7 @@ const courseSchema = new mongoose.Schema({
     courseContent:[
         {
             type:mongoose.Schema.Types.ObjectId,
-            ref:"RatingAndReview",
+            ref:"Section",
         }
     ],
     price:{

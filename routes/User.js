@@ -7,12 +7,12 @@ const{
     login,
     signup,
     sendOtp,
-    changePassword,
+    changePassword
 } = require("../controllers/Auth");
 
 const{
     resetPasswordToken,
-    resetPassword,
+    ResetPassword,
 } = require("../controllers/ResetPassword")
 
 
@@ -36,6 +36,6 @@ router.post("/changepassword", auth, changePassword)
 router.post("/reset-password-token", resetPasswordToken)
 
 //route for resetting users password after verificatiom
-router.post("/reset-password", resetPassword)
+router.post("/reset-password", ResetPassword)
 
 module.exports = router

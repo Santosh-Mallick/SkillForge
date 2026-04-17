@@ -1,10 +1,10 @@
-const Profile = require("../models/Profile")
-const User = require("../models/User");
+const Profile = require("../models/Profile.js")
+const User = require("../models/User.js");
 
 exports.updateProfile = async(req,res)=>{
     try {
         //get data
-        const {dateOfBirth="", about="", contactNumber, gender} = req.bosy;
+        const {dateOfBirth="", about="", contactNumber, gender} = req.body;
         //get user id
         const id = req.user.id;
 
@@ -89,6 +89,7 @@ exports.getUserDetails = async (req,res)=>{
         return res.status(200).json({
             success:true,
             message:"User Data Fetched Successfully",
+            data: userDetails
         })
 
     } catch (error) {

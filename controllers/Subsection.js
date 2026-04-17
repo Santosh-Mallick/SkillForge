@@ -1,5 +1,5 @@
-const SubSection = require("../models/SubSection");
-const Section = require("../models/Section");
+const SubSection = require("../models/SubSection.js");
+const Section = require("../models/Section.js");
 const { uploadImageToCloudinary } = require("../utils/imageUpload");
 
 exports.createSubSection = async(req,res)=>{
@@ -12,7 +12,7 @@ exports.createSubSection = async(req,res)=>{
 
         //validation
         if(!sectionId || !title || !timeDuration || !description|| !video){
-            res.status(400).json({
+            return res.status(400).json({
                 success: false,
                 message:"All fields are required",
             });
@@ -65,7 +65,7 @@ exports.updateSubsection = async(req,res)=>{
             });
         }
 
-        const SubSection = await SubSection.findByIdAndUpdate(subSectionId,
+        const updatedSubSection = await SubSection.findByIdAndUpdate(subSectionId,
             {
             title,
             timeDuration,
@@ -91,9 +91,9 @@ exports.updateSubsection = async(req,res)=>{
 //HW: delete SubSection
 exports.deleteSubsection = async(req,res)=>{
     try {
-        const {subSectionId} = req.param;
+        const {subSectionId} = req.params;
 
-        await Section.findByIdAndDelete(SubSectionId);
+        await SubSection.findByIdAndDelete(subSectionId);
 
          // remove reference from Section
         await Section.findByIdAndUpdate(subSectionId, {

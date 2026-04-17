@@ -1,12 +1,13 @@
+// In index.js
 const express = require("express");
 const app = express();
 
-const userRoutes = require("./routes/User");
-const courseRoutes = require("./routes/Course");
-const paymentsRoutes = require("./routes/Payments");
-const profileRoutes = require("./routes/Profile");
+const userRoutes = require("./routes/User.js");
+const courseRoutes = require("./routes/Course.js");
+const paymentsRoutes = require("./routes/Payments.js");
+const profileRoutes = require("./routes/Profile.js");
 
-const database = require("./config/databse");
+const database = require("./config/database.js");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
 const {cloudinaryConnect} = require("./config/cloudinary");
@@ -14,7 +15,7 @@ const fileUpload = require("express-fileupload");
 const dotenv = require("dotenv");
 
 dotenv.config();
-const PORT = process.env.PORT || 4000;
+const PORT = 4000;
 
 //database.connect();
 database.connect();

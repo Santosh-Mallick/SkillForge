@@ -12,8 +12,7 @@ const profileSchema = new mongoose.Schema({
         trim:true
    },
    contactNumber:{
-        type:Number,
-        trim:true
+        type:Number
    }
 });
 
